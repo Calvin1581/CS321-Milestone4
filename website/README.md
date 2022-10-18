@@ -7,3 +7,11 @@ pip install -r requirements.txt
 `
 
 This will install all the requirements needed to run the Flask app.
+
+In order to actually run the app, navigate to the base repository directory. Your current directory should contain main.py. Run the following:
+
+`
+flask --app main run
+`
+
+The command line will output the port on which the website is running.
