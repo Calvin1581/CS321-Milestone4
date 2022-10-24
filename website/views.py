@@ -9,7 +9,7 @@ views = Blueprint('views', __name__)
 
 @views.route("/")
 def home():
-    return "<h1>Howdy milestone 4ers</h1>"
+    return render_template("login.html")
 
 
 @views.route("/athleteDashboard")
@@ -25,3 +25,7 @@ def coachDashboard():
 @views.route("/permissions")
 def permissions():
     return render_template("permissions.html")
+
+@views.route("/signup")
+def signUp():
+    return render_template("signup.html")
