@@ -43,6 +43,8 @@ def sign_up():
         email = request.form.get('email')
         password = request.form.get('password')
         confirm_password = request.form.get('confirm-password')
+        role = request.form.get('role')
+        print(role)
 
         user = User.query.filter_by(email=email).first()
         if user:
@@ -55,7 +57,7 @@ def sign_up():
             flash('Passwords don\'t match.', category='error')
         else:
             # add user to database
-            new_user = User(email=email, password=generate_password_hash(password, method='sha256'))
+            new_user = User(email=email, password=generate_password_hash(password, method='sha256'), role=role)
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)
