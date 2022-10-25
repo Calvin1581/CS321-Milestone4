@@ -48,9 +48,13 @@ def sign_up():
         role = request.form.get('role')
         print(role)
 
+        emailList = email.split('@')
+
         user = User.query.filter_by(email=email).first()
         if user:
             flash('Email already exists.', category='error')
+        elif emailList[1] != 'colby.edu':
+            flash('Must use colby email', category='error')
         elif len(email) < 4:
             flash('Email must be greater than 3 characters.', category='error')
         elif len(password) < 7:
