@@ -13,6 +13,7 @@ class Note(db.Model):  # might change these things, just copied from todo list i
 
 class User(db.Model, UserMixin):  # might change these things, just copied from todo list i think
     id = db.Column(db.Integer, primary_key=True)
+    permissions = db.Column(db.Integer)
     email = db.Column(db.String(150), unique=True)
     first_name = db.Column(db.String(150))
     password = db.Column(db.String(150))
