@@ -26,6 +26,10 @@ This milestone involved developing a dynamic version of the Athletic Management 
 
 ### Results: 
 
+Updated graphs (made with Plotly)
+<img width="1400" alt="Screen Shot 2022-10-26 at 2 20 51 PM" src="https://user-images.githubusercontent.com/30237570/198105488-a48abcf9-deca-4104-b361-43537d8b5ca1.png">
+
+
 ### Team Reflection: 
 
 ### Contribution List: 
