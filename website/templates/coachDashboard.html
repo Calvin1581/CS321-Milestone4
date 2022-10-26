@@ -38,7 +38,7 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-3 grid-margin stretch-card">
+        <div class="col-lg-6 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
 
@@ -74,44 +74,7 @@
           </div>
         </div>
 
-        <div class="col-lg-3">
-          <div class="col-md-12 grid-margin stretch card">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Readiness</h4>
-
-                <div id = "chart2"></div>
-           
-                <!--plotly CDN-->
-                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-                <script type="text/javascript">
-                    var graphs = {{ graphJSON | safe}};
-                    Plotly.plot("chart2", graphs,{});
-                </script>
-                
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 grid-margin stretch card">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Nutrition</h4>
-                
-                <div id = "chart3"></div>
-           
-                <!--plotly CDN-->
-                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-                <script type="text/javascript">
-                    var graphs = {{ graphJSON | safe}};
-                    Plotly.plot("chart3", graphs,{});
-                </script>
-                
-              </div>
-
-              </div>
-            </div>
-          </div>
-        
+       
 
         <div class="col-lg-6">
           <div class="col-12 grid-margin stretch card">
