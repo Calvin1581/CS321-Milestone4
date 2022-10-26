@@ -1,13 +1,10 @@
 from urllib import request
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Flask, Blueprint, render_template, request, flash, redirect, url_for, current_app, redirect
 from flask_login import login_required, current_user
 from . import db
 from .models import Note
-
-import os
-import sys
-from flask import Flask, flash, request, redirect, url_for, current_app
 from werkzeug.utils import secure_filename
+import os
 
 views = Blueprint('views', __name__)
 
@@ -39,14 +36,12 @@ def allowed_file(filename):
 
 @views.route("/upload", methods=["GET", "POST"])
 def upload():
-    sys.stdout.flush()
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
         file = request.files['file']
-        sys.stdout.flush()
         # If the user does not select a file, the browser submits an
         # empty file without a filename.
         if file.filename == '':
