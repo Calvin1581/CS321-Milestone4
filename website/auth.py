@@ -38,17 +38,7 @@ def logout():
 
 @auth.route('/permissions', methods=['GET', 'POST'])
 def sign_up():
-    list = User.query.all()
-    if list.first():
-        user_list = list
-    else:
-        user_list = [];
-    id = request.form.get('users')
-    if id:
-        selected_user = User.query.filter_by(id=request.form.get('users')).first()
-    else:
-        selected_user = current_user
-    selected_role = request.form.get('select_role')
+    
 
     if request.method == 'POST':
         email = request.form.get('email')
@@ -69,6 +59,7 @@ def sign_up():
         elif len(password) < 7:
             flash('Password must be at least 7 characters.', category='error')
         else:
+            
             # add user to database
             new_user = User(email=email,
                             password=generate_password_hash(password, method='sha256'),
@@ -78,5 +69,17 @@ def sign_up():
             db.session.commit()
             login_user(new_user, remember=True)
             flash('Account created!', category='success')
+    try:
+        list = User.query.all()
+        if list.first():
+            user_list = list
+    except:
+        user_list = []
+    id = request.form.get('users')
+    if id:
+        selected_user = User.query.filter_by(id=request.form.get('users')).first()
+    else:
+        selected_user = current_user
+    selected_role = request.form.get('select_role')
 
-    return render_template("permissions.html", user=current_user, user_list=list,chosen_user=selected_user,selected_role=selected_role)
+    return render_template("permissions.html", user=current_user, user_list=user_list,chosen_user=selected_user,selected_role=selected_role)
