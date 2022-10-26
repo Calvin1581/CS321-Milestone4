@@ -37,6 +37,10 @@ def coachDashboard():
     dfN = pd.read_csv('website/data/nutrition.csv')
     calAvg = dfN["Calorie Intake"].mean().astype(int)
 
+    dfT = pd.read_csv('website/data/team.csv')
+    teamValues1 = dfT["Hours"].tolist()
+    teamValues2 = dfT["Readiness"].tolist()
+
     readinessL = ["Score"]
     readinessV = [readinessAvg]
 
@@ -47,7 +51,7 @@ def coachDashboard():
     nutritionL = ["Calorie Intake"]
     nutritionV = [calAvg]
     
-    fig = make_subplots(rows=1, cols=3, specs=[[{"type": "pie"}, {"type": "pie"}, {"type": "pie"}]], )
+    fig = make_subplots(rows=1, cols=4, column_widths=[.2,.2,.2,.5], subplot_titles=["Readiness", "Sleep", "Nutrition", "Team Readiness"], horizontal_spacing = 0.2, specs=[ [{"type": "pie"}, {"type": "pie"}, {"type": "pie"}, {"type": "scatter"} ]] )
 
     # READINESS GRAPH
     fig.add_trace(go.Pie(values=readinessV, labels=readinessL, hole=.5, title="Readiness", textfont=dict(color="white")), row=1, col=1)
@@ -59,11 +63,16 @@ def coachDashboard():
     # NUTRITION GRAPH
     fig.add_trace(go.Pie(values=nutritionV, labels=nutritionL, hole=.5, title="Nutrition", textfont=dict(color="white")), row=1, col=3)
 
+    # TEAM GRAPH
+    fig.add_trace(go.Scatter(x=teamValues1, y=teamValues2), row=1, col=4)
+
     fig.update_layout({ 'plot_bgcolor': 'rgba(0,0,0,0)',  'paper_bgcolor': 'rgba(0,0,0,0)', })
-    fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))
+    fig.update_layout(margin=dict(l=50, r=0, t=0, b=0))
     fig.update_layout(showlegend=False)
-    fig.update_layout(width=550, height=200)
+    fig.update_layout(width=1100, height=300)
     fig.update_layout(font_color="white")
+
+
 
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     
