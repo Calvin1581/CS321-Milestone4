@@ -29,14 +29,18 @@ def coachDashboard():
 
 @views.route("/permissions", methods=['GET', 'POST'])
 def permissions():
-    selected_user = User.query.filter_by(id=request.form.get('users')).first()
-    selected_role = request.form.get('select_role')
-
     list = User.query.all()
     if list.first():
-
         user_list = list
     else:
-        
         user_list = [];
-    return render_template("permissions.html", user=current_user, user_list=user_list,chosen_user=selected_user,selected_role=selected_role)
+    id = request.form.get('users')
+    if id:
+        selected_user = User.query.filter_by(id=request.form.get('users')).first()
+    else:
+        selected_user = current_user
+    selected_role = request.form.get('select_role')
+
+    
+    
+    return render_template("permissions.html", user=current_user, user_list=user_list, selected_role=selected_role,selected_user=selected_user)

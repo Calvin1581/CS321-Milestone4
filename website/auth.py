@@ -38,7 +38,16 @@ def logout():
 
 @auth.route('/permissions', methods=['GET', 'POST'])
 def sign_up():
-    selected_user = User.query.filter_by(id=request.form.get('users')).first()
+    list = User.query.all()
+    if list.first():
+        user_list = list
+    else:
+        user_list = [];
+    id = request.form.get('users')
+    if id:
+        selected_user = User.query.filter_by(id=request.form.get('users')).first()
+    else:
+        selected_user = current_user
     selected_role = request.form.get('select_role')
 
     if request.method == 'POST':
@@ -70,4 +79,4 @@ def sign_up():
             login_user(new_user, remember=True)
             flash('Account created!', category='success')
 
-    return render_template("permissions.html", user=current_user, user_list=User.query.all(),chosen_user=selected_user,selected_role=selected_role)
+    return render_template("permissions.html", user=current_user, user_list=list,chosen_user=selected_user,selected_role=selected_role)

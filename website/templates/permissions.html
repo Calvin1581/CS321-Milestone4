@@ -72,7 +72,6 @@
               <select name="users" class="js-example-basic-single" style="width:100%" size = "5">
                 <option ></option>
                 {% for user in user_list %}
-                <p>{{user}}</p>
                 <option value="{{user.id}}"> {{user.last_name}}, {{user.first_name}}</option>
                 {% endfor %}
               </select>
@@ -123,9 +122,9 @@
                         <div class="form-group row">
                           <div class="form-check">
                             <label class="form-check-label">
-                              {% if selected_role == "Athlete" &}
+                              {% if selected_role == "Athlete" %}
                                 <input type="checkbox" class="form-check-input"> View Athlete </label>
-                              {% elif selected role == "Team" %}
+                              {% elif selected_role == "Team" %}
                                 <input type="checkbox" class="form-check-input"> View Team </label>
                               {% endif %}
                           </div>
@@ -146,9 +145,9 @@
                         <div class="form-group row">
                           <div class="form-check">
                             <label class="form-check-label">
-                              {% if selected_role == "Athlete" &}
+                              {% if selected_role == "Athlete" %}
                                 <input type="checkbox" class="form-check-input"> Add Athlete </label>
-                              {% elif selected role == "Team" %}
+                              {% elif selected_role == "Team" %}
                                 <input type="checkbox" class="form-check-input"> Add Team </label>
                               {% endif %}
                           </div>
@@ -171,9 +170,9 @@
                         <div class="form-group row">
                           <div class="form-check">
                             <label class="form-check-label">
-                              {% if selected_role == "Athlete" &}
+                              {% if selected_role == "Athlete" %}
                                 <input type="checkbox" class="form-check-input"> Modify Athlete </label>
-                              {% elif selected role == "Team" %}
+                              {% elif selected_role == "Team" %}
                                 <input type="checkbox" class="form-check-input"> Modify Team </label>
                               {% endif %}
                           </div>
