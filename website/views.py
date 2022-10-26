@@ -8,6 +8,7 @@ import pandas as pd
 import json
 import plotly
 import plotly.express as px
+import plotly.graph_objects as go
 
 views = Blueprint('views', __name__)
 
@@ -30,15 +31,19 @@ def coachDashboard():
 
     labels = ["Hours"]
     values = [hoursAvg]
+
     
-    fig = px.pie(labels, values = values, hole = 0.4, width=280, height=280, color = labels, color_discrete_map = {'Hours':'blue'})
+    fig = px.pie(labels, values = values, hole = 0.4, width=100, height=100, color = labels, color_discrete_map = {'Hours':'blue'})
 
     fig.update_layout({
         'plot_bgcolor': 'rgba(0,0,0,0)', 
-        'paper_bgcolor': 'rgba(0,0,0,0)',
+        'paper_bgcolor': 'rgba(0,0,0,0)', 
         })
+    fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))
+
 
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    
     return render_template("coachDashboard.html", user=current_user, graphJSON=graphJSON)
 
 @views.route("/permissions")

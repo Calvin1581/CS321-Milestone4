@@ -79,7 +79,16 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Readiness</h4>
-                <canvas id="readiness-history" class="transaction-chart"></canvas>
+
+                <div id = "chart2"></div>
+           
+                <!--plotly CDN-->
+                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                <script type="text/javascript">
+                    var graphs = {{ graphJSON | safe}};
+                    Plotly.plot("chart2", graphs,{});
+                </script>
+                
               </div>
             </div>
           </div>
@@ -87,7 +96,18 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Nutrition</h4>
-                <canvas id="nutrition-history" class="transaction-chart"></canvas>
+                
+                <div id = "chart3"></div>
+           
+                <!--plotly CDN-->
+                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                <script type="text/javascript">
+                    var graphs = {{ graphJSON | safe}};
+                    Plotly.plot("chart3", graphs,{});
+                </script>
+                
+              </div>
+
               </div>
             </div>
           </div>
