@@ -51,7 +51,7 @@ def coachDashboard():
     nutritionL = ["Calorie Intake"]
     nutritionV = [calAvg]
     
-    fig = make_subplots(rows=1, cols=4, column_widths=[.2,.2,.2,.5], subplot_titles=["Readiness", "Sleep", "Nutrition", "Team Readiness"], horizontal_spacing = 0.2, specs=[ [{"type": "pie"}, {"type": "pie"}, {"type": "pie"}, {"type": "scatter"} ]] )
+    fig = make_subplots(rows=1, cols=4, column_widths=[.2,.2,.2,.5], subplot_titles=["Readiness", "Sleep", "Nutrition", "Team Readiness"], horizontal_spacing = 0.1, specs=[ [{"type": "pie"}, {"type": "pie"}, {"type": "pie"}, {"type": "scatter"} ]] )
 
     # READINESS GRAPH
     fig.add_trace(go.Pie(values=readinessV, labels=readinessL, hole=.5, title="Readiness", textfont=dict(color="white")), row=1, col=1)
