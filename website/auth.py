@@ -11,11 +11,14 @@ auth = Blueprint('auth', __name__)
 def login():
 
     if request.method == 'POST':
+        
 
         email = request.form.get('email')
         password = request.form.get('password')
-
-        user = User.query.filter_by(email=email).first()
+        try:
+            user = User.query.filter_by(email=email).first()
+        except:
+            user = None
         if user:
             if check_password_hash(user.password, password):
                 flash('Logged in successfully!', category='success')
@@ -37,10 +40,11 @@ def logout():
 
 
 @auth.route('/permissions', methods=['GET', 'POST'])
-def sign_up():
+def permissions():
     
 
     if request.method == 'POST':
+        
         email = request.form.get('email')
         first_name = request.form.get('first_name')
         last_name = request.form.get('last_name')
@@ -48,8 +52,10 @@ def sign_up():
         role = request.form.get('roles')
 
         emailList = email.split('@')
-
-        user = User.query.filter_by(email=email).first()
+        try:
+            user = User.query.filter_by(email=email).first()
+        except:
+            user = None
         if user:
             flash('Email already exists.', category='error')
         elif emailList[1] != 'colby.edu':
@@ -59,6 +65,7 @@ def sign_up():
         elif len(password) < 7:
             flash('Password must be at least 7 characters.', category='error')
         else:
+            print("Happened")
             
             # add user to database
             new_user = User(email=email,
