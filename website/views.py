@@ -16,10 +16,11 @@ views = Blueprint('views', __name__)
 
 @views.route("/")
 def home():
-    return "<h1>Howdy milestone 4ers</h1>"
+    return redirect(url_for('auth.login'))
 
 
 @views.route("/dashboard")
+@login_required
 def dashboard():
     return render_template("dashboard.html", user=current_user)
 
