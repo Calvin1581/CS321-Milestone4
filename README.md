@@ -24,13 +24,13 @@ The command line will output the port on which the website is running.
 ### Abstract: 
 This milestone involved developing a dynamic version of the Athletic Management system.  We created a database to handle athlete data and connected it to our HTML pages from the previous milestone, in addition to functional dashboards for various users, and login/signup ability.  We updated the graphs from the Corona bootstrap to Plotly so that they can be updated in real time via CSV.
 
-### Results: 
+### Results: **still needs to be written**
 
 Updated graphs (made with Plotly)
 <img width="1400" alt="Screen Shot 2022-10-26 at 2 20 51 PM" src="https://user-images.githubusercontent.com/30237570/198105488-a48abcf9-deca-4104-b361-43537d8b5ca1.png">
 
 
-### Team Reflection: 
+### Team Reflection: **still needs to be written**
 
 ### Contribution List: 
 * Calvin:
