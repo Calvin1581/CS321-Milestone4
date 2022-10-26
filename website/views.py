@@ -30,3 +30,7 @@ def coachDashboard():
 @views.route("/permissions")
 def permissions():
     return render_template("permissions.html")
+
+@views.route("/athleteSleepData")
+def athleteSleep():
+    return render_template("athleteSleepData.html")

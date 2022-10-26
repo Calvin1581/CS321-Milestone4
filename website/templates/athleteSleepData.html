@@ -6,19 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Colby College Athlete Management System</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="template/assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="template//vendors/css/vendor.bundle.base.css">
+    <!-- <link rel="stylesheet" href="template/assets/vendors/mdi/css/materialdesignicons.min.css"> -->
+
+    <!-- <link rel="stylesheet" href="template//vendors/css/vendor.bundle.base.css"> -->
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="template/assets/vendors/jvectormap/jquery-jvectormap.css">
-    <link rel="stylesheet" href="template/assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="template/assets/vendors/owl-carousel-2/owl.carousel.min.css">
-    <link rel="stylesheet" href="template/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/vendors/jvectormap/jquery-jvectormap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/vendors/flag-icon-css/css/flag-icon.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/vendors/owl-carousel-2/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/vendors/owl-carousel-2/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/vendors/mdi/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/vendors/css/vendor.bundle.base.css')}}">
+    <!-- <link rel="stylesheet" href="template/assets/vendors/jvectormap/jquery-jvectormap.css"> -->
+    <!-- <link rel="stylesheet" href="template/assets/vendors/flag-icon-css/css/flag-icon.min.css"> -->
+    <!-- <link rel="stylesheet" href="template/assets/vendors/owl-carousel-2/owl.carousel.min.css"> -->
+    <!-- <link rel="stylesheet" href="template/assets/vendors/owl-carousel-2/owl.theme.default.min.css"> -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="template/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="template/assets/css/style.css"> -->
     <!-- End layout styles -->
 
     
@@ -36,7 +44,7 @@
             <a class="navbar-brand brand-logo-mini" href="index.html"><img src="template/assets/images/logo-mini.svg" alt="logo" /></a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-            <img src="template/assets/images/mule1.png" alt="image" />
+            <img src="{{url_for('static', filename='images/mule1.png')}}" >
             <ul class="navbar-nav w-100">
               <li class="nav-item w-100">
                 <a href="athleteDashboard.html" class="mdi mdi-arrow-left-circle ml-4">Back</a>
@@ -46,7 +54,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="template/assets/images/user.png" alt="">
+                    <img class="img-xs rounded-circle" src="{{url_for('static', filename='images/user.png')}}" alt="">
                     <p class="mb-0 d-none d-sm-block navbar-profile-name">Athlete View</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
