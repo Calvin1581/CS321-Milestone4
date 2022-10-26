@@ -1,3 +1,4 @@
+from tarfile import LENGTH_LINK
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User, Note
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -60,6 +61,10 @@ def sign_up():
             flash('Must use colby email')
         elif len(email) < 4:
             flash('Email must be greater than 3 characters.')
+        elif len(first_name)==0:
+            flash('First name required')
+        elif len(last_name)==0:
+            flash('Last name required')
         elif len(password) < 7:
             flash('Password must be at least 7 characters.')
         elif password != confirm_password:
