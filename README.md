@@ -22,16 +22,24 @@ The command line will output the port on which the website is running.
 # Report
 
 ### Abstract: 
+This milestone involved developing a dynamic version of the Athletic Management system.  We created a database to handle athlete data and connected it to our HTML pages from the previous milestone, in addition to functional dashboards for various users, and login/signup ability.  We updated the graphs from the Corona bootstrap to Plotly so that they can be updated in real time via CSV.
 
 ### Results: 
 
 ### Team Reflection: 
 
 ### Contribution List: 
-* Tamsin:
+* Calvin:
+* Ben:
+* Matt:
+* Hannah: Created inheritance for the seach bar, created inheritance for the nav bar drop down
+* Milo: Initially made the web application runnable
+* Tamsin: Create dummy csv data for readiness, sleep, nutrition, and whole team readiness, graphs branch: read csv data into plotly graphs (pie charts and line graphs) via JSON, working on reading csv data into athlete breakdown table
+* Nicole: 
 
 ### Extensions: 
+We added a functional ReadMe file to our repository detailing the website.
 
 ### References: 
-
+Naser Al Madi
 
