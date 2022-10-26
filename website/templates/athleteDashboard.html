@@ -42,97 +42,39 @@
     </div>
 
     <div class="row">
-      <div class="col-md-4 grid-margin stretch-card">
+      <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
+          
           <div class="card-body">
-            <h4 class="card-title">Sleep</h4>
-            <a href="athleteSleepData.html" class="streched-link">Details</a>
-            <canvas id="sleep-history" class="transaction-chart"></canvas>
-            <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-              <div class="text-md-center text-xl-left">
-                <h6 class="mb-1">Hours</h6>
-              </div>
-              <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                <h6 class="font-weight-bold mb-0">8</h6>
-              </div>
-            </div>
-            <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-              <div class="text-md-center text-xl-left">
-                <h6 class="mb-1">Quality</h6>
-              </div>
-              <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                <h6 class="font-weight-bold mb-0">90%</h6>
-              </div>
-            </div>
-          </div>
+
+            <h4 class="card-title">John Doe's Stats</h4>
+
+            <div id = "chart1"></div>
+         
+            <!--plotly CDN-->
+            <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+            <script type="text/javascript">
+                var graphs = {{ graphJSON | safe}};
+                Plotly.plot("chart1", graphs,{});
+            </script>
+            
+          </div>   
 
           
-        </div>
-      </div>
-
-      <div class="col-md-4 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Readiness</h4>
-            <a href="athleteReadinessData.html" class="streched-link">Details</a>
-            <canvas id="readiness-history" class="transaction-chart"></canvas>
-          </div>
-
-          
-        </div>
-      </div>
-
-      <div class="col-md-4 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Nutrition</h4>
-            <a href="athleteNutritionData.html" class="streched-link">Details</a>
-            <canvas id="nutrition-history" class="transaction-chart"></canvas>
-          </div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-lg-7 grid-margin stretch-card">
-        
+      <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">John Doe's Trends</h4>
-            <a class="btn btn-info create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">Range ⇩</a>
-              <div class="dropdown-menu" aria-labelledby="createbuttonDropdown">
-                
-                <a class="dropdown-item">7 Days</a>
-
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item">14 Days</a>
-
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item">30 Days</a>
-
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item">Full Season</a>
-              
-              </div>
-            <canvas id="linechart-multi" class="m-2" style="height:250px"></canvas>
-          </div>
-        </div>
-
-      </div>
-      <div class="col-lg-5 grid-margin stretch-card">
-        
-        <div class="card">
-
           <div class="card-body">
             <h4 class="card-title">John Doe's Notes</h4>
-
             <div class="row">
               <div class="col-lg-12">
                 <div class="card">
                   <div class="card-body">
-
                     <div class="row">
-                      
                       <div class="col-8 col-xl-12 col-xl-8 my-auto">
                         <div class="d-flex d-sm-block d-md-flex align-items-center">
                           <h3 class="mb-0">Sports Med:</h3>
@@ -140,7 +82,6 @@
                         </div>
                         <h6 class="text-muted font-weight-normal">Athlete is fully cleared to play</h6>
                       </div>
-                      
                       <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                       </div>
                     </div>
@@ -150,8 +91,7 @@
             </div>
               
             <div class="row">
-
-              <div class="col-lg-12">
+              <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <div class="row">
