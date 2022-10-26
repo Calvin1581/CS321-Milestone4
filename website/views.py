@@ -12,6 +12,11 @@ def home():
     return "<h1>Howdy milestone 4ers</h1>"
 
 
+@views.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html", user=current_user)
+
+
 @views.route("/athleteDashboard")
 def athleteDashboard():
     return render_template("athleteDashboard.html", user=current_user)
