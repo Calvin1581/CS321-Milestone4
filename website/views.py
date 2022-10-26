@@ -29,4 +29,4 @@ def coachDashboard():
 
 @views.route("/permissions")
 def permissions():
-    return render_template("permissions.html")
+    return render_template("permissions.html", user=current_user)
