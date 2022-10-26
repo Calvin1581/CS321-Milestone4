@@ -19,9 +19,8 @@ flask --app main run
 
 The command line will output the port on which the website is running.
 
-<h2>Report</h2>
+Report
 
-<p>
 ### Abstract: 
 
 ### Results: 
@@ -35,4 +34,4 @@ The command line will output the port on which the website is running.
 
 ### References: 
 
-</p>
+
