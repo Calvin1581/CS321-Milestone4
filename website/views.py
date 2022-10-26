@@ -9,6 +9,7 @@ import json
 import plotly
 import plotly.express as px
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 views = Blueprint('views', __name__)
 
@@ -26,21 +27,43 @@ def athleteDashboard():
 @views.route("/coachDashboard")
 def coachDashboard():
     
-    df = pd.read_csv('website/data/sleep.csv')
-    hoursAvg = df["Hours"].mean().astype(int)
+    dfR = pd.read_csv('website/data/readiness.csv')
+    readinessAvg = dfR["Score"].mean().astype(int)
 
-    labels = ["Hours"]
-    values = [hoursAvg]
+    dfS = pd.read_csv('website/data/sleep.csv')
+    hoursAvg = dfS["Hours"].mean().astype(int)
+    qualityAvg = dfS["Quality"].mean().astype(int)
 
+    dfN = pd.read_csv('website/data/nutrition.csv')
+    calAvg = dfN["Calorie Intake"].mean().astype(int)
+
+    readinessL = ["Score"]
+    readinessV = [readinessAvg]
+
+    sleepL = ["Hours", "Quality"]
+    h = [hoursAvg]
+    q = [qualityAvg]
+
+    nutritionL = ["Calorie Intake"]
+    nutritionV = [calAvg]
     
-    fig = px.pie(labels, values = values, hole = 0.4, width=80, height=80, color = labels, color_discrete_map = {'Hours':'blue'})
+    fig = make_subplots(rows=1, cols=3, specs=[[{"type": "pie"}, {"type": "pie"}, {"type": "pie"}]], )
 
-    fig.update_layout({
-        'plot_bgcolor': 'rgba(0,0,0,0)', 
-        'paper_bgcolor': 'rgba(0,0,0,0)', 
-        })
+    # READINESS GRAPH
+    fig.add_trace(go.Pie(values=readinessV, labels=readinessL, hole=.5, title="Readiness", textfont=dict(color="white")), row=1, col=1)
+    
+    # SLEEP GRAPH
+    fig.add_trace(go.Pie(title="Sleep", hole=0.5, sort=False, direction='clockwise', values=q, textposition='inside', marker={'line': {'color': 'white', 'width': 1}}), row=1, col=2)
+    fig.add_trace(go.Pie(hole=0.7, sort=False, direction='clockwise', values=h, labels=sleepL, textposition='inside', marker={'colors': ['green', 'red', 'blue'], 'line': {'color': 'white', 'width': 1}}), row=1, col=2)
+
+    # NUTRITION GRAPH
+    fig.add_trace(go.Pie(values=nutritionV, labels=nutritionL, hole=.5, title="Nutrition", textfont=dict(color="white")), row=1, col=3)
+
+    fig.update_layout({ 'plot_bgcolor': 'rgba(0,0,0,0)',  'paper_bgcolor': 'rgba(0,0,0,0)', })
     fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))
-
+    fig.update_layout(showlegend=False)
+    fig.update_layout(width=550, height=200)
+    fig.update_layout(font_color="white")
 
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     
