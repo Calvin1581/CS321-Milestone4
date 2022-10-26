@@ -118,8 +118,6 @@ def upload():
             file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
             # parse the csv file and insert it into the db
             data_type = filename.rsplit(".")[0].lower()
-            print(data_type, file=sys.stdout)
-            sys.stdout.flush()
             parse_csv(data_type=data_type, filename=filename)
             return redirect(url_for("views.upload"))
 
