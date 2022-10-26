@@ -33,7 +33,7 @@ def coachDashboard():
     values = [hoursAvg]
 
     
-    fig = px.pie(labels, values = values, hole = 0.4, width=100, height=100, color = labels, color_discrete_map = {'Hours':'blue'})
+    fig = px.pie(labels, values = values, hole = 0.4, width=80, height=80, color = labels, color_discrete_map = {'Hours':'blue'})
 
     fig.update_layout({
         'plot_bgcolor': 'rgba(0,0,0,0)', 
