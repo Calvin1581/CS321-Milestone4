@@ -2,7 +2,7 @@ from urllib import request
 from flask import Flask, Blueprint, render_template, request, flash, redirect, url_for, current_app, redirect
 from flask_login import login_required, current_user
 from . import db
-from .models import Note
+from .models import Note, parse_csv
 from werkzeug.utils import secure_filename
 import os
 
@@ -114,6 +114,8 @@ def upload():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+            # parse the csv file and insert it into the db
+            parse_csv("sleep", "sleep.csv")
             return redirect(url_for("views.upload"))
 
     # basic, flask-provided html for uploading files
