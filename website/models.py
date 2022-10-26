@@ -17,3 +17,27 @@ class User(db.Model, UserMixin):  # might change these things, just copied from 
     first_name = db.Column(db.String(150))
     password = db.Column(db.String(150))
     notes = db.relationship('Note')
+
+
+class Nutrition(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DateTime(timezone=True), default=func.now())
+    calories = db.Column(db.Integer)
+    protein = db.Column(db.Integer)
+    carbohydrates = db.Column(db.Integer)
+    fats = db.Column(db.Integer)
+
+
+class Sleep(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DateTime(timezone=True), default=func.now())
+    total_duration = db.Column(db.Integer)
+    REM = db.Column(db.Integer)
+    deep_sleep = db.Column(db.Integer)
+    light_sleep = db.Column(db.Integer)
+
+
+class Readiness(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DateTime(timezone=True), default=func.now())
+    force = db.Column(db.Integer)
