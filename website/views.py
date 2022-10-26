@@ -29,11 +29,12 @@ def coachDashboard():
 
 @views.route("/permissions", methods=['GET', 'POST'])
 def permissions():
-    list = User.query.all()
-    if list.first():
-        user_list = list
-    else:
-        user_list = [];
+    try:
+        list = User.query.all()
+        if list.first():
+            user_list = list
+    except:
+        user_list = []
     id = request.form.get('users')
     if id:
         selected_user = User.query.filter_by(id=request.form.get('users')).first()
