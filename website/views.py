@@ -14,6 +14,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
+import sys
+
 views = Blueprint('views', __name__)
 
 
@@ -115,7 +117,10 @@ def upload():
             filename = secure_filename(file.filename)
             file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
             # parse the csv file and insert it into the db
-            parse_csv("sleep", "sleep.csv")
+            data_type = filename.rsplit(".")[0].lower()
+            print(data_type, file=sys.stdout)
+            sys.stdout.flush()
+            parse_csv(data_type=data_type, filename=filename)
             return redirect(url_for("views.upload"))
 
     # basic, flask-provided html for uploading files
