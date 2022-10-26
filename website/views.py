@@ -71,6 +71,8 @@ def coachDashboard():
     fig.update_layout(showlegend=False)
     fig.update_layout(width=1100, height=300)
     fig.update_layout(font_color="white")
+    fig.update_xaxes(showgrid=False, zeroline=False)
+    fig.update_yaxes(showgrid=False, zeroline=False)
 
 
 
