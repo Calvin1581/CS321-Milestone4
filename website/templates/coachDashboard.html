@@ -1,7 +1,7 @@
-   {% extends "base.html" %}
+{% extends "base.html" %}
 
-  {% block title %} Home {% endblock %}
-
+{% block title %} Home {% endblock %}
+{% block content %}
 
 <div class="main-panel">
     <div class="content-wrapper">
@@ -39,29 +39,16 @@
 
       <div class="row">
         <div class="col-lg-3 grid-margin stretch-card">
-          
-          
           <div class="card">
             <div class="card-body">
-              
-            
               <h4 class="card-title">Sleep</h4>
-
-
-              <canvas id="sleep-history" class="transaction-chart"></canvas> 
-
-              <!-- NEW SLEEP CHART USING MATPLOTLIB -->
-
-                
+              <canvas id="sleep-history" class="transaction-chart"></canvas>
               <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
                 <div class="text-md-center text-xl-left">
                   <h6 class="mb-1">Hours</h6>
                 </div>
                 <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-
-                 
-
-                  <h6 class="font-weight-bold mb-0"> 8 </h6>
+                  <h6 class="font-weight-bold mb-0">8</h6>
                 </div>
               </div>
               <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
@@ -69,12 +56,9 @@
                   <h6 class="mb-1">Quality</h6>
                 </div>
                 <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                  <h6 class="font-weight-bold mb-0"> 90 </h6>
+                  <h6 class="font-weight-bold mb-0">90%</h6>
                 </div>
               </div>
-
-       
-
             </div>   
           </div>
         </div>
@@ -84,11 +68,7 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Readiness</h4>
-
                 <canvas id="readiness-history" class="transaction-chart"></canvas>
-
-                
-
               </div>
             </div>
           </div>
@@ -366,7 +346,4 @@
   </div>
   <!-- main-panel ends -->
 </div>
-
-</body>
-
-</html>
+{% endblock %}
