@@ -36,17 +36,17 @@ def logout():
     return redirect(url_for('auth.login'))
 
 
-@auth.route('/sign-up', methods=['GET', 'POST'])
+@auth.route('/permissions', methods=['GET', 'POST'])
 def sign_up():
+    selected_user = User.query.filter_by(id=request.form.get('users')).first()
+    selected_role = request.form.get('select_role')
 
     if request.method == 'POST':
         email = request.form.get('email')
-        first_name = request.form.get('first-name')
-        last_name = request.form.get('last-name')
+        first_name = request.form.get('first_name')
+        last_name = request.form.get('last_name')
         password = request.form.get('password')
-        confirm_password = request.form.get('confirm-password')
-        role = request.form.get('role')
-        print(role)
+        role = request.form.get('roles')
 
         emailList = email.split('@')
 
@@ -59,8 +59,6 @@ def sign_up():
             flash('Email must be greater than 3 characters.', category='error')
         elif len(password) < 7:
             flash('Password must be at least 7 characters.', category='error')
-        elif password != confirm_password:
-            flash('Passwords don\'t match.', category='error')
         else:
             # add user to database
             new_user = User(email=email,
@@ -71,6 +69,5 @@ def sign_up():
             db.session.commit()
             login_user(new_user, remember=True)
             flash('Account created!', category='success')
-            return redirect(url_for('views.dashboard'))
 
-    return render_template("signup.html", user=current_user)
+    return render_template("permissions.html", user=current_user, user_list=User.query.all(),chosen_user=selected_user,selected_role=selected_role)

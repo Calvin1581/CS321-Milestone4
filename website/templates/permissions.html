@@ -69,10 +69,12 @@
           <div class="card-body">
             <h4 class="card-title">Choose User:</h4>
             <div class="form-group">
-              <select class="js-example-basic-single" style="width:100%">
+              <select name="users" class="js-example-basic-single" style="width:100%" size = "5">
                 <option ></option>
-                <option >Doe, Jane</option>
-                <option >Smith, John</option>
+                {% for user in user_list %}
+                <p>{{user}}</p>
+                <option value="{{user.id}}"> {{user.last_name}}, {{user.first_name}}</option>
+                {% endfor %}
               </select>
             </div> 
             <button type="submit" class="btn btn-primary mr-2">Remove User</button>
@@ -106,22 +108,26 @@
                 <div class="col-md-10">
                   <div class="form-group">
                     <div class="form-group">
-                      <select class="js-example-basic-single" style="width:100%">
-                        <option >Athlete</option>
-                        <option >Team</option>
-                        <option >Admin</option>
+                      <select name="select_role" class="js-example-basic-single" style="width:100%">
+                        <option value="Athlete" >Athlete</option>
+                        <option value="Team" >Team</option>
+                        <option value="Admin" >Admin</option>
 
                       </select>
 
                     </div> 
 
-
+                    {% if selected_role=="Athlete" or selected_role=="Team" %}
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
                           <div class="form-check">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input"> View Athlete/Team Data </label>
+                              {% if selected_role == "Athlete" &}
+                                <input type="checkbox" class="form-check-input"> View Athlete </label>
+                              {% elif selected role == "Team" %}
+                                <input type="checkbox" class="form-check-input"> View Team </label>
+                              {% endif %}
                           </div>
                         </div>
                       </div>
@@ -140,7 +146,11 @@
                         <div class="form-group row">
                           <div class="form-check">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input"> Add Athlete/Team Data </label>
+                              {% if selected_role == "Athlete" &}
+                                <input type="checkbox" class="form-check-input"> Add Athlete </label>
+                              {% elif selected role == "Team" %}
+                                <input type="checkbox" class="form-check-input"> Add Team </label>
+                              {% endif %}
                           </div>
                         </div>
                       </div>
@@ -154,12 +164,18 @@
                       </div>
                     </div>
 
+                   
+
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
                           <div class="form-check">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input"> Modify Athlete/Team Data </label>
+                              {% if selected_role == "Athlete" &}
+                                <input type="checkbox" class="form-check-input"> Modify Athlete </label>
+                              {% elif selected role == "Team" %}
+                                <input type="checkbox" class="form-check-input"> Modify Team </label>
+                              {% endif %}
                           </div>
                         </div>
                       </div>
@@ -172,6 +188,10 @@
                         </div>
                       </div>
                     </div>
+
+                    
+
+                    {% elif selected_role=="Admin" %}
 
                     <div class="row">
                       <div class="col-md-6">
@@ -211,6 +231,8 @@
                       </div>
                     </div>
 
+                    {% endif %}
+
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                   </div>
                 </div>
@@ -230,27 +252,28 @@
             <h4 class="card-title">Add New User</h4>
             <form class="forms-sample">
               <div class="form-group">
-                <label for="exampleInputName1">Name</label>
-                <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                <label for="exampleInputName1">First Name</label>
+                <input value ="first_name" type="text" class="form-control" id="exampleInputName1" placeholder="First Name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputName1">Last Name</label>
+                <input name="last_name" type="text" class="form-control" id="exampleInputName1" placeholder="Last Name">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail3">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                <input name="email" type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword4">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                <input name="password" type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
               </div>
               <div class="form-group">
                 <label>Role</label>
                 <div class="form-group">
-                  <select class="js-example-basic-single" >
-                    <option >Athlete</option>
-                    <option >Coach</option>
-                    <option >Peak Team</option>
-                    <option >Psychologist</option>
-                    <option >Atheltic Trainer</option>
-                    <option >Admin</option>
+                  <select name="roles" class="js-example-basic-single" >
+                    <option value="Athelte" name="Athlete_role" >Athlete</option>
+                    <option value="Coach" name="Coach_role" >Coach</option>
+                    <option value="Admin" name="Admin_role" >Admin</option>
                   </select>
                 </div> 
               </div>
