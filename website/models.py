@@ -7,14 +7,93 @@ import pandas as pd
 from datetime import datetime
 
 
-class Note(db.Model):  # might change these things, just copied from todo list i think
+class Note(db.Model): #Note name should change to be more descriptive, but tbh I don't remember
+                      #what the jump metric machine things are called.
     id = db.Column(db.Integer, primary_key=True)
-    data = db.Column(db.String(10000))
-    date = db.Column(db.DateTime(timezone=True), default=func.now())
+    date = db.Column(db.DateTime(timezone=True), default=func.now()) #date = datetime.strptime(inputString, "%d/%m/%Y")
+    time = db.Column(db.DateTime()) #time = datetime.strptime(inputString, %H:%M:%S") might need these functions when putting strings into this
+    name = db.Column(db.String(100))
+    segment = db.Column(db.String(10))
+    position = db.Column(db.String(10))
+    type = db.Column(db.String(30))
+    excluded = db.Column(db.String(30))
+    tags = db.Column(db.String(50))
+    # these below can be string "N/A"
+    sys_weight = db.Column(db.Integer)
+    init_threshold = db.Column(db.Integer)
+    peak_force = db.Column(db.Integer)
+    net_peak_force = db.Column(db.Integer)
+    relative_peak_force = db.Column(db.Integer)
+    relative_peak_force_BW = db.Column(db.Integer)
+    LR_peak_force = db.Column(db.Integer)
+    lef_peak_force = db.Column(db.Integer)
+    right_peak_force = db.Column(db.Integer)
+    force_at_0_ms = db.Column(db.Integer)
+    net_force_at_0_ms = db.Column(db.Integer)
+    relative_force_at_0_ms= db.Column(db.Integer)
+    relative_force_at_0_ms_BW = db.Column(db.Integer)
+    left_force_at_0_ms = db.Column(db.Integer)
+    right_force_at_0_ms = db.Column(db.Integer)
+    # 50
+    force_at_50_ms = db.Column(db.Integer)
+    net_force_at_50_ms = db.Column(db.Integer)
+    relative_force_at_50_ms= db.Column(db.Integer)
+    relative_force_at_50_ms_BW = db.Column(db.Integer)
+    left_force_at_50_ms = db.Column(db.Integer)
+    right_force_at_50_ms = db.Column(db.Integer)
+    rfd_0to50_ms = db.Column(db.Integer)
+    impulse_0to50_ms = db.Column(db.Integer)
+    net_impulse_0to50_ms = db.Column(db.Integer)
+    # 100
+    force_at_100_ms = db.Column(db.Integer)
+    net_force_at_100_ms = db.Column(db.Integer)
+    relative_force_at_100_ms= db.Column(db.Integer)
+    relative_force_at_100_ms_BW = db.Column(db.Integer)
+    left_force_at_100_ms = db.Column(db.Integer)
+    right_force_at_100_ms = db.Column(db.Integer)
+    rfd_0to100_ms = db.Column(db.Integer)
+    impulse_0to100_ms = db.Column(db.Integer)
+    net_impulse_0to100_ms = db.Column(db.Integer)
+    # 150
+    force_at_150_ms = db.Column(db.Integer)
+    net_force_at_150_ms = db.Column(db.Integer)
+    relative_force_at_150_ms= db.Column(db.Integer)
+    relative_force_at_150_ms_BW = db.Column(db.Integer)
+    left_force_at_150_ms = db.Column(db.Integer)
+    right_force_at_150_ms = db.Column(db.Integer)
+    rfd_0to150_ms = db.Column(db.Integer)
+    impulse_0to150_ms = db.Column(db.Integer)
+    net_impulse_0to150_ms = db.Column(db.Integer)
+    # 200
+    force_at_200_ms = db.Column(db.Integer)
+    net_force_at_200_ms = db.Column(db.Integer)
+    relative_force_at_200_ms= db.Column(db.Integer)
+    relative_force_at_200_ms_BW = db.Column(db.Integer)
+    rfd_0to200_ms = db.Column(db.Integer)#based on data headers this is here, not below rightforce
+    left_force_at_200_ms = db.Column(db.Integer)
+    right_force_at_200_ms = db.Column(db.Integer)
+    impulse_0to200_ms = db.Column(db.Integer)
+    net_impulse_0to200_ms = db.Column(db.Integer)
+    # 250
+    force_at_250_ms = db.Column(db.Integer)
+    net_force_at_250_ms = db.Column(db.Integer)
+    relative_force_at_250_ms= db.Column(db.Integer)
+    relative_force_at_250_ms_BW = db.Column(db.Integer)
+    rfd_0to250_ms = db.Column(db.Integer)#based on data headers this is here, not below rightforce
+    left_force_at_250_ms = db.Column(db.Integer)
+    right_force_at_250_ms = db.Column(db.Integer)
+    impulse_0to250_ms = db.Column(db.Integer)
+    net_impulse_0to250_ms = db.Column(db.Integer)
+    pull_length = db.Column(db.Integer)
+    time_to_peak_force = db.Column(db.Integer)
+
+
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
-class User(db.Model, UserMixin):  # might change these things, just copied from todo list i think
+
+
+class User(db.Model, UserMixin): 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
     first_name = db.Column(db.String(150))
