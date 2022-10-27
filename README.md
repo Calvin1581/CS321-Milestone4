@@ -26,30 +26,30 @@ This milestone involved developing a dynamic version of the Athletic Management 
 
 ### Sprint Backlog:
 User stories (general):
-<p>As a user a can create a new account using an email and password – Completed
-As a user of the website I can log in to the website with a username and password – Completed
-As a user of the website I can login to my assigned role –Completed
+<p>As a user a can create a new account using an email and password – Completed<br>
+As a user of the website I can log in to the website with a username and password – Completed<br>
+As a user of the website I can login to my assigned role –Completed<br>
 As a user of the website, I can navigate back to my dashboard by clicking on the mule icon – Partially completed (works for moving between athlete detail pages and dashboard)</p>
 
 Admin/Peak:
-<p>As an Admin, I can edit the permissions of all other users. – Started but unfinished
-As an Admin, I can view the sports science data (sleep, nutrition, readiness) of athletes and teams – Completed
-As an Admin, I can upload csv with the sport science data of our athletes, or add users – Partially completed (admin can upload data through CSV, but the data does not go into the database at this time)
+<p>As an Admin, I can edit the permissions of all other users. – Started but unfinished<br>
+As an Admin, I can view the sports science data (sleep, nutrition, readiness) of athletes and teams – Completed<br>
+As an Admin, I can upload csv with the sport science data of our athletes, or add users – Partially completed (admin can upload data through CSV, but the data does not go into the database at this time)<br>
 As an Admin, I can delete users accounts without deleting the user’s data – not implemented</p>
 
 Athlete:
-<p>As an Athlete, I can view graphs detailing my most recent sports science data (sleep, nutrition, readiness). – Completed (using dummy data) 
-As an Athlete, I can view a graph showing changes in my sports science data over time. – Completed (using dummy data)
-As an Athlete, I can change the range of time over which I view changes in my sports science data.--not implement
-As an Athlete, I can download a csv file of my sports science data.--not implemented
-As an Athlete, I can view detail pages on different aspects of my sports science data (sleep, readiness, calories) – Partially completed (can view detail pages, need to add graphs)
+<p>As an Athlete, I can view graphs detailing my most recent sports science data (sleep, nutrition, readiness). – Completed (using dummy data) <br>
+As an Athlete, I can view a graph showing changes in my sports science data over time. – Completed (using dummy data)<br>
+As an Athlete, I can change the range of time over which I view changes in my sports science data.--not implemented<br>
+As an Athlete, I can download a csv file of my sports science data.--not implemented<br>
+As an Athlete, I can view detail pages on different aspects of my sports science data (sleep, readiness, calories) – Partially completed (can view detail pages, need to add graphs)<br>
 As an Athlete, I can view notes on my readiness to play, sleep, and nutrition.--Completed</p>
 
 Coach
-<p>As a Coach, I can view sports science data from athletes on my teams –Completed
-As a Coach, I can choose which of my teams I wish to view– not implemented
-As a Coach, I can navigate to an athlete’s individual page by clicking on their profile – Completed
-As a Coach, I can see graphs showing changes in sports science data over time (readiness, sleep, nutrition) –Partially completed (Have plots, but they wouldn’t load in detailed athlete pages)
+<p>As a Coach, I can view sports science data from athletes on my teams –Completed<br>
+As a Coach, I can choose which of my teams I wish to view– not implemented<br>
+As a Coach, I can navigate to an athlete’s individual page by clicking on their profile – Completed<br>
+As a Coach, I can see graphs showing changes in sports science data over time (readiness, sleep, nutrition) –Partially completed (Have plots, but they wouldn’t load in detailed athlete pages)<br>
 As a Coach, I can download csvs of my athlete’s sports science data? –not implemented</p>
 
 ### Results: 
