@@ -36,7 +36,7 @@ Updated graphs (made with Plotly)
 * Calvin:
 * Ben:
 * Matt:
-* Hannah: Created inheritance for the seach bar, created inheritance for the nav bar drop down
+* Hannah: Created inheritance for the seach bar, created inheritance for the nav bar drop down, linked the signup, the three detail pages, and made the mule a back button.
 * Milo: Initially made the web application runnable
 * Tamsin: Create dummy csv data for readiness, sleep, nutrition, and whole team readiness, graphs branch: read csv data into plotly graphs (pie charts and line graphs) via JSON, working on reading csv data into athlete breakdown table
 * Nicole: 
