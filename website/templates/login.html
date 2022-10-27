@@ -32,6 +32,13 @@
             <div class="col-lg-4 mx-auto">
               <div class="card">
                 <div class="card-body px-5 py-5">
+                  {% with msg=get_flashed_messages()%}
+                    {% if msg %}
+                      {% for m in msg %}
+                        <h4>{{ m }}</h4>
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
                   <h3 class="card-title text-left mb-3">Login</h3>
                   <form method="POST">
                     <div class="form-group">
@@ -52,7 +59,7 @@
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
                     </div>
-                    <p class="sign-up">Don't have an Account?<a href="#"> Sign Up</a></p>
+                    <p class="sign-up">Don't have an Account?<a href="sign-up"> Sign Up</a></p>
                   </form>
                 </div>
 
