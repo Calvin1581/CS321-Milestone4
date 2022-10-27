@@ -47,3 +47,10 @@ We added a functional ReadMe file to our repository detailing the website.
 ### References: 
 Naser Al Madi
 
+
+## Uploading files
+
+CSV files can be uploaded from the path `"/upload"`. An uploaded file will be automatically parsed and ingested into the database. In order for the file to be properly parsed and inserted, the following conventions must be followed:
+
+- The filename must be in `{"user.csv", "nutrition.csv", "recovery.csv", "sleep.csv"}`. Uploaded files currently overwrite the previous csv of the same name; this should be changed in a later version.
+- The csv file must contain the correct column labels.

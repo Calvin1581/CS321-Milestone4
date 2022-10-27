@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Colby College Athlete Management System</title>
+    <title>{% block title %} Colby College Athlete Management System {% endblock %}</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="static/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="static/vendors/css/vendor.bundle.base.css">
@@ -50,7 +50,7 @@
             <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
               <div class="navbar-profile">
                 <img class="img-xs rounded-circle" src="static/images/user.png" alt="">
-                <p class="mb-0 d-none d-sm-block navbar-profile-name">Menu</p>
+                <p class="mb-0 d-none d-sm-block navbar-profile-name">{{user.first_name}}</p>
                 <i class="mdi mdi-menu-down d-none d-sm-block"></i>
               </div>
             </a>
@@ -68,7 +68,7 @@
               {% endif %}
               <div class="dropdown-divider"></div>
                 <div class="preview-item-content">
-                  <p class="preview-subject mb-1">Logout</p>
+                  <a href="logout">Logout</a>
                 </div>
               </a>
             </div>
@@ -84,8 +84,22 @@
     <div class="container-scroller">
       
         <div class="container-fluid">
+          <div class="main-panel">
+            <div class="content-wrapper">
         {% block content%}
-        {% endblock %} 
+        {% endblock %}
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
         </div>
         <!-- page-body-wrapper ends -->
     </div>
