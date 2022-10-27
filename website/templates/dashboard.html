@@ -46,7 +46,7 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Sleep</h4>
-                <a href="{{url_for('views.athleteSleep')}}" class="streched-link">Details</a>
+                <a href="{{url_for('views.athleteSleep')}}" class="streched-link">Sleep Details</a>
                 <canvas id="sleep-history" class="transaction-chart"></canvas>
                 <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
                   <div class="text-md-center text-xl-left">
@@ -74,7 +74,7 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Readiness</h4>
-                <a href="athleteReadinessData.html" class="streched-link">Details</a>
+                <a href="{{url_for('views.athleteReadiness')}}" class="streched-link">Readiness Details</a>
                 <canvas id="readiness-history" class="transaction-chart"></canvas>
               </div>
     
@@ -86,7 +86,7 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Nutrition</h4>
-                <a href="athleteNutritionData.html" class="streched-link">Details</a>
+                <a href="{{url_for('views.athleteNutrition')}}" class="streched-link">Nutrition Details</a>
                 <canvas id="nutrition-history" class="transaction-chart"></canvas>
               </div>
             </div>
@@ -372,32 +372,10 @@
                         <div class="row">
                           <div class="col-8 col-xl-12 col-xl-8 my-auto">
                             <div class="d-flex d-sm-block d-md-flex align-items-center">
-                              <h3 class="mb-0">Sleep</h3>
-                            </div>
-                            <h6 class="text-muted font-weight-normal">Sleep has been great</h6>
-                          </div>
-                          <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="card">
-                      <div class="card-body">
-    
-                        <div class="row">
-                          
-                          <div class="col-8 col-xl-12 col-xl-8 my-auto">
-                            <div class="d-flex d-sm-block d-md-flex align-items-center">
                               <h3 class="mb-0">Nutriton</h3>
                             </div>
                             <h6 class="text-muted font-weight-normal">Calories has maintained</h6>
                           </div>
-    
-                          
                           <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                           </div>
                         </div>
@@ -405,6 +383,7 @@
                     </div>
                   </div>
                 </div>
+                
     
               </div>
     

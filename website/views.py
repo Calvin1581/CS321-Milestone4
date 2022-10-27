@@ -34,3 +34,11 @@ def permissions():
 @views.route("/athleteSleepData")
 def athleteSleep():
     return render_template("athleteSleepData.html")
+
+@views.route("/athleteReadiness")
+def athleteReadiness():
+    return render_template("athleteReadinessData.html")
+
+@views.route("/athleteNutrition")
+def athleteNutrition():
+    return render_template("athleteNutritionData.html")
