@@ -44,10 +44,12 @@
             <a class="navbar-brand brand-logo-mini" href="index.html"><img src="template/assets/images/logo-mini.svg" alt="logo" /></a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-            <img src="{{url_for('static', filename='images/mule1.png')}}" >
+            <a href="{{url_for('views.dashboard')}}"> 
+              <img src="{{url_for('static', filename='images/mule1.png')}}" >
+            </a>
             <ul class="navbar-nav w-100">
               <li class="nav-item w-100">
-                <a href="athleteDashboard.html" class="mdi mdi-arrow-left-circle ml-4">Back</a>
+                <!-- <a href="{{url_for('views.dashboard')}}" class="mdi mdi-arrow-left-circle ml-4">Back</a> -->
               </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
@@ -115,7 +117,7 @@
                       <div class="col-4 col-sm-3 col-xl-2">
                       </div>
                       <div class="col-5 col-sm-7 col-xl-8 p-0 text-center">
-                        <h1 class="mb-1 mb-sm-0">Sleep - Dale McLovin</h1>
+                        <h1 class="mb-1 mb-sm-0">Sleep</h1>
                       </div>
                     </div>
                   </div>
