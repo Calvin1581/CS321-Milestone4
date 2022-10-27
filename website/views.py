@@ -1,8 +1,11 @@
 from urllib import request
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Flask, Blueprint, render_template, request, flash, redirect, url_for, current_app, redirect
 from flask_login import login_required, current_user
-#from . import db
-#from .models import Note
+from . import db
+from .models import Note, parse_csv
+from werkzeug.utils import secure_filename
+import os
+
 import pandas as pd
 
 import json
@@ -10,6 +13,8 @@ import plotly
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+
+import sys
 
 views = Blueprint('views', __name__)
 
@@ -89,3 +94,44 @@ def coachDashboard():
 @views.route("/permissions")
 def permissions():
     return render_template("permissions.html")
+
+
+# helper function for upload()
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in {"csv"}
+
+@views.route("/upload", methods=["GET", "POST"])
+def upload():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # If the user does not select a file, the browser submits an
+        # empty file without a filename.
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+            # parse the csv file and insert it into the db
+            data_type = filename.rsplit(".")[0].lower()
+            parse_csv(data_type=data_type, filename=filename)
+            return redirect(url_for("views.upload"))
+
+    # basic, flask-provided html for uploading files
+    # TODO make an actual webpage that imlements this
+    return '''
+    <!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File</h1>
+    <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+    '''
+
+
