@@ -26,7 +26,7 @@ This milestone involved developing a dynamic version of the Athletic Management 
 
 ### Sprint Backlog:
 User stories (general):
-As a user a can create a new account using an email and password – Completed
+<p>As a user a can create a new account using an email and password – Completed</p>
 As a user of the website I can log in to the website with a username and password – Completed
 As a user of the website I can login to my assigned role –Completed
 As a user of the website, I can navigate back to my dashboard by clicking on the mule icon – Partially completed (works for moving between athlete detail pages and dashboard)
