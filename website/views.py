@@ -237,6 +237,17 @@ def coachDashboard():
 def permissions():
     return render_template("permissions.html")
 
+@views.route("/athleteSleepData")
+def athleteSleep():
+    return render_template("athleteSleepData.html")
+
+@views.route("/athleteReadiness")
+def athleteReadiness():
+    return render_template("athleteReadinessData.html")
+
+@views.route("/athleteNutrition")
+def athleteNutrition():
+    return render_template("athleteNutritionData.html")
 
 # helper function for upload()
 def allowed_file(filename):
