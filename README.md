@@ -26,31 +26,31 @@ This milestone involved developing a dynamic version of the Athletic Management 
 
 ### Sprint Backlog:
 User stories (general):
-<p>As a user a can create a new account using an email and password – Completed</p>
+<p>As a user a can create a new account using an email and password – Completed
 As a user of the website I can log in to the website with a username and password – Completed
 As a user of the website I can login to my assigned role –Completed
-As a user of the website, I can navigate back to my dashboard by clicking on the mule icon – Partially completed (works for moving between athlete detail pages and dashboard)
+As a user of the website, I can navigate back to my dashboard by clicking on the mule icon – Partially completed (works for moving between athlete detail pages and dashboard)</p>
 
 Admin/Peak:
-As an Admin, I can edit the permissions of all other users. – Started but unfinished
+<p>As an Admin, I can edit the permissions of all other users. – Started but unfinished
 As an Admin, I can view the sports science data (sleep, nutrition, readiness) of athletes and teams – Completed
 As an Admin, I can upload csv with the sport science data of our athletes, or add users – Partially completed (admin can upload data through CSV, but the data does not go into the database at this time)
-As an Admin, I can delete users accounts without deleting the user’s data – not implemented
+As an Admin, I can delete users accounts without deleting the user’s data – not implemented</p>
 
 Athlete:
-As an Athlete, I can view graphs detailing my most recent sports science data (sleep, nutrition, readiness). – Completed (using dummy data) 
+<p>As an Athlete, I can view graphs detailing my most recent sports science data (sleep, nutrition, readiness). – Completed (using dummy data) 
 As an Athlete, I can view a graph showing changes in my sports science data over time. – Completed (using dummy data)
 As an Athlete, I can change the range of time over which I view changes in my sports science data.--not implement
 As an Athlete, I can download a csv file of my sports science data.--not implemented
 As an Athlete, I can view detail pages on different aspects of my sports science data (sleep, readiness, calories) – Partially completed (can view detail pages, need to add graphs)
-As an Athlete, I can view notes on my readiness to play, sleep, and nutrition.--Completed
+As an Athlete, I can view notes on my readiness to play, sleep, and nutrition.--Completed</p>
 
 Coach
-As a Coach, I can view sports science data from athletes on my teams –Completed
+<p>As a Coach, I can view sports science data from athletes on my teams –Completed
 As a Coach, I can choose which of my teams I wish to view– not implemented
 As a Coach, I can navigate to an athlete’s individual page by clicking on their profile – Completed
 As a Coach, I can see graphs showing changes in sports science data over time (readiness, sleep, nutrition) –Partially completed (Have plots, but they wouldn’t load in detailed athlete pages)
-As a Coach, I can download csvs of my athlete’s sports science data? –not implemented
+As a Coach, I can download csvs of my athlete’s sports science data? –not implemented</p>
 
 ### Results: 
 In this milestone we created a dynamic version of the Athletic Management System. Our website includes a database that stores athlete data and sources it to the pages of the website. All of the pages and clickable link are workable and link to their correct locations. A user is now able to sign up and login to the system now to see their specific data. The graph were also taken from imagees to Plotly graphs that are updateable via CSV.
