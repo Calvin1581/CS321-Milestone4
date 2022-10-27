@@ -55,7 +55,7 @@ def permissions():
         try:
             user = User.query.filter_by(email=email).first()
         except:
-            user = None
+            user = False
         if user:
             flash('Email already exists.', category='error')
         elif emailList[1] != 'colby.edu':

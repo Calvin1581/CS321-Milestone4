@@ -103,7 +103,7 @@
             
 
             <h4 class="card-title">Change Permissions:</h4>
-            <form method="POST">
+            <form method="POST" action="{{url_for('views.permissions')}}">
               <div class="row">
 
                 <div class="col-md-10">
@@ -248,14 +248,14 @@
 
     </div>
 
-    <form method="POST">
+    <form method="POST", action="{{url_for('auth.permissions')}}">
     
     <div class="row">
       <div class="col-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Add New User</h4>
-            <form method="POST" action="{{url_for('views.permissions')}}">
+            <form method="POST" action="{{url_for('auth.permissions')}}">
               <div class="form-group">
                 <label for="exampleInputName1">First Name</label>
                 <input name="first_name" type="text" class="form-control" id="exampleInputName1" placeholder="First Name">

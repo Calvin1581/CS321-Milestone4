@@ -1,7 +1,9 @@
 from tkinter.messagebox import NO
 from urllib import request
+from xml.dom.minidom import Identified
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from flask_login import login_required, current_user
+from flask_login import login_user, logout_user, login_required, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from .models import User,Note
 
@@ -32,28 +34,32 @@ def coachDashboard():
 def permissions():
     try:
         list = User.query.all()
-        if list.first():
-            user_list = list
+        
+        user_list = list
+        print(len(user_list))
     except:
         user_list = []
     id = request.form.get('users')
     if id:
-        selected_user = User.query.filter_by(id=request.form.get('users')).first()
+        selected_user = User.query.filter_by(id=id).first()
     else:
         selected_user = current_user
     
     selected_role = "Athlete"
 
     if request.method == "POST":
-        print("happened")
         selected_role = request.form.get("select_role")
         email = request.form.get('email')
         first_name = request.form.get('first_name')
-        last_name = request.form.get('last_name')
+        last_name= request.form.get('last_name')
         password = request.form.get('password')
         role = request.form.get('roles')
         
-        emailList = email.split('@')
+        try:
+            emailList = email.split('@')
+        except:
+            emailList = ["no","no"]
+            
         
         try:
             user = User.query.filter_by(email=email).first()
@@ -76,6 +82,7 @@ def permissions():
 
             db.session.add(new_user)
             db.session.commit()
+
             login_user(new_user, remember=True)
             flash('Account created!', category='success')
     
