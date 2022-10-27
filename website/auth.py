@@ -21,13 +21,12 @@ def login():
             user = None
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('views.dashboard'))
             else:
-                flash('Incorrect password, try again.', category='error')
+                flash('Incorrect password')
         else:
-            flash('Email does not exist.', category='error')
+            flash('Email does not exist')
 
     return render_template('login.html')
 
@@ -52,18 +51,27 @@ def permissions():
         role = request.form.get('roles')
 
         emailList = email.split('@')
-        try:
-            user = User.query.filter_by(email=email).first()
-        except:
-            user = False
-        if user:
-            flash('Email already exists.', category='error')
+
+
+        user = User.query.filter_by(email=email).first()
+        if email == '':
+            flash('Email required')
+        elif user:
+            flash('Email already exists.')
+        elif len(emailList) < 2:
+            flash('Invalid email')
         elif emailList[1] != 'colby.edu':
-            flash('Must use colby email', category='error')
+            flash('Must use colby email')
         elif len(email) < 4:
-            flash('Email must be greater than 3 characters.', category='error')
+            flash('Email must be greater than 3 characters.')
+        elif len(first_name)==0:
+            flash('First name required')
+        elif len(last_name)==0:
+            flash('Last name required')
         elif len(password) < 7:
-            flash('Password must be at least 7 characters.', category='error')
+            flash('Password must be at least 7 characters.')
+        elif password != confirm_password:
+            flash('Passwords don\'t match.')
         else:
             print("Happened")
             
@@ -90,3 +98,4 @@ def permissions():
     selected_role = request.form.get('select_role')
 
     return render_template("permissions.html", user=current_user, user_list=user_list,chosen_user=selected_user,selected_role=selected_role)
+

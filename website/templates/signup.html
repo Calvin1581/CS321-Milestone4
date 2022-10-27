@@ -19,6 +19,9 @@
     <link rel="shortcut icon" href="static/images/logo.svg" />
   </head>
   <body>
+
+    
+
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
 
@@ -32,6 +35,13 @@
             <div class="col-lg-4 mx-auto">
               <div class="card">
                 <div class="card-body px-5 py-5">
+                  {% with msg=get_flashed_messages()%}
+                    {% if msg %}
+                      {% for m in msg %}
+                        <h4>{{ m }}</h4>
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
                   <h3 class="card-title text-left mb-3">Sign Up</h3>
                   <form method="POST">
                     <div class="form-group">
