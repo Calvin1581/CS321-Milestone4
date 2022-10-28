@@ -68,7 +68,7 @@ In this milestone we held multiple in person meetings to update the group needs,
 
 ### Contribution List: 
 * Calvin: Scrum Master, Created database for Jump Metric data, Reviewed and merged requests, Created burndown chart
-* Ben:
+* Ben: Linked static componenets, set up user authentication, added inheritance, created unified dashboard for coach/athlete 
 * Matt:
 * Hannah: Created inheritance for the seach bar, created inheritance for the nav bar drop down, linked the signup, the three detail pages, and made the mule a back button.
 * Milo: Initially made the web application runnable
