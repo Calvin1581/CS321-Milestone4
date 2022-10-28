@@ -71,7 +71,7 @@ In this milestone we held multiple in person meetings to update the group needs,
 * Ben: Linked static componenets, set up user authentication, added inheritance, created unified dashboard for coach/athlete 
 * Matt:
 * Hannah: Created inheritance for the seach bar, created inheritance for the nav bar drop down, linked the signup, the three detail pages, and made the mule a back button.
-* Milo: Initially made the web application runnable
+* Milo: Initially made the web application runnable. Implemented a csv file uploading feature and a parser which ingests uploaded csv data into the sqlalchemy database. Created dummy csv data to be uploaded and database classes to correspond to uploaded data.
 * Tamsin: Create dummy csv data for readiness, sleep, nutrition, and whole team readiness, graphs branch: read csv data into plotly graphs (pie charts and line graphs) via JSON, working on reading csv data into athlete breakdown table
 * Nicole: 
 
