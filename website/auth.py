@@ -11,11 +11,14 @@ auth = Blueprint('auth', __name__)
 def login():
 
     if request.method == 'POST':
+        
 
         email = request.form.get('email')
         password = request.form.get('password')
-
-        user = User.query.filter_by(email=email).first()
+        try:
+            user = User.query.filter_by(email=email).first()
+        except:
+            user = None
         if user:
             if check_password_hash(user.password, password):
                 login_user(user, remember=True)
@@ -35,19 +38,20 @@ def logout():
     return redirect(url_for('auth.login'))
 
 
-@auth.route('/sign-up', methods=['GET', 'POST'])
-def sign_up():
+@auth.route('/permissions', methods=['GET', 'POST'])
+def permissions():
+    
 
     if request.method == 'POST':
+        
         email = request.form.get('email')
-        first_name = request.form.get('first-name')
-        last_name = request.form.get('last-name')
+        first_name = request.form.get('first_name')
+        last_name = request.form.get('last_name')
         password = request.form.get('password')
-        confirm_password = request.form.get('confirm-password')
-        role = request.form.get('role')
-        print(role)
+        role = request.form.get('roles')
 
         emailList = email.split('@')
+
 
         user = User.query.filter_by(email=email).first()
         if email == '':
@@ -69,6 +73,8 @@ def sign_up():
         elif password != confirm_password:
             flash('Passwords don\'t match.')
         else:
+            print("Happened")
+            
             # add user to database
             new_user = User(email=email,
                             password=generate_password_hash(password, method='sha256'),
@@ -77,6 +83,19 @@ def sign_up():
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)
-            return redirect(url_for('views.dashboard'))
+            flash('Account created!', category='success')
+    try:
+        list = User.query.all()
+        if list.first():
+            user_list = list
+    except:
+        user_list = []
+    id = request.form.get('users')
+    if id:
+        selected_user = User.query.filter_by(id=request.form.get('users')).first()
+    else:
+        selected_user = current_user
+    selected_role = request.form.get('select_role')
 
-    return render_template("signup.html", user=current_user)
+    return render_template("permissions.html", user=current_user, user_list=user_list,chosen_user=selected_user,selected_role=selected_role)
+
